@@ -1,10 +1,25 @@
 <?php error_reporting(0); 
+
+$sitetitle = "";
+$sitesubtitle = "";
+$sitedesc = "";
+$sitebg = "";
+
 if( !file_exists("user.settings") )
-	header("Location: https://api.instagram.com/oauth/authorize/?client_id=cd4fae473b4f4daa8c3af0ac15badf8f&redirect_uri=http://localhost/CGN-InstaWeb/auth.php&response_type=token")
+	header("Location: https://api.instagram.com/oauth/authorize/?client_id=cd4fae473b4f4daa8c3af0ac15badf8f&redirect_uri=http://localhost/CGN-InstaWeb/auth.php&response_type=token");
+else if( !file_exists("site.settings") )
+	header("Location: auth.php");
+else{
+	$handle = fopen("site.settings", "r");
+	if (($line = fgets($handle)) !== false) $sitetitle = $line;
+	if (($line = fgets($handle)) !== false) $sitesubtitle = $line;
+	if (($line = fgets($handle)) !== false) $sitedesc = $line;
+	if (($line = fgets($handle)) !== false) $sitebg = substr($line, 0, 7);
+}
 ?>
 <html>
 	<head>
-		<title>APAZ BUTİK OTEL  - ALAÇATI</title>
+		<title><?php echo $sitetitle." - ".$sitesubtitle; ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -39,7 +54,7 @@ if( !file_exists("user.settings") )
 
 		<meta name="keywords" content="Apaz Butik Otel,Alaçatı Butik Oteller, Alaçatı Otelleri, Butik Otel Alaçatı, Alaçatı Otel Çeşme" />
 	</head>
-	<body>
+	<body style="<?php echo'background-color: '.$sitebg.';' ?>">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -47,7 +62,7 @@ if( !file_exists("user.settings") )
 <div class="container">	
 	
 <header id="header">
-<h1 ><a  href="index.php" style="cursor: pointer;text-decoration:none" ><img class="logo" src="assets/images/favicon/apple-touch-icon-72x72.png" /><strong><span class="logocolor">APAZ<span class="butik"> BUTİK</span> OTEL</span></strong><span class="respon">ALAÇATI</span></a>
+<h1 ><a  href="index.php" style="cursor: pointer;text-decoration:none" ><img class="logo" src="assets/images/favicon/apple-touch-icon-72x72.png" /><strong><span class="logocolor"><?php echo $sitetitle; ?></span></strong><span class="respon"><?php echo $sitesubtitle; ?></span></a>
 <nav>
 <ul>
 <li class="logocolor" ><a href="#footer"style="cursor: pointer;text-decoration:none"  class="icon fa-info-circle"><span class="logocolor">Hakkımızda</span></a></li>
@@ -134,23 +149,22 @@ if( !file_exists("user.settings") )
 						<div class="inner split">
 							<div>
 								<section>
-									<h2>APAZ BUTİK OTEL - ALAÇATI</h2>
-									<p>Alaçatı'nın en popüler restaurant, cafe ve mağazalarının bulunduğu Hacı memiş  caddesinin başında konumlandırılmıştır. Alaçatı'nın sosyal hareketliliğini yaşayabileceğiniz güzel bir barı ve kahvaltı keyfi yapabileceğiniz samimi bir avlumuz bulunmaktadır.</p>
-																		<p>Otelimizde ve odalarımızda, tatiliniz boyunca ihtiyaç duyacağınız herşey mevcuttur. Sizlerin tatil keyfini arttırabilmek ve Alaçatıdan mutlu bir şekilde ayrılabilmeniz için, içten ve samimi  personelimiz hizmetinize hazırdır.</p>
+									<h2><?php echo $sitetitle." - ".$sitesubtitle; ?></h2>
+									<p><?php echo $sitedesc; ?></p>
 								</section>
 								<section>
 									<h2>BİZİ TAKİP EDİN</h2>
 									<ul class="icons">
-										<li><a href="https://www.instagram.com/apazbutikhotel/?hl=en" class="icon fa-instagram"><span class="label">Instagram</span></a></li>	
+										<li><a href="https://www.instagram.com/<?php echo rudr_instagram_api_curl_connect('https://api.instagram.com/v1/users/self/?access_token='.$access_token)->data->username; ?>" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>	
 									</ul>
 								</section>
 								<p class="copyright">
-								 <a class="icon" href="http://www.cgnyazilim.com"><strong>CGN</strong></a>.
+								 <a class="icon" href="http://www.cgnyazilim.com"><strong>designed by CGN</strong></a>.
 								</p>
 							</div>
 							<div>
 								<section>
-									<h2>REZERVASYON İÇİN BİZE YAZIN</h2>
+									<h2>İLETİŞİM İÇİN BİZE YAZIN</h2>
 									<?php
 										if (isset($_SESSION['message'])) {
 											if ($_SESSION['success']) {
