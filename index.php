@@ -1,4 +1,7 @@
-<?php error_reporting(0); ?>
+<?php error_reporting(0); 
+if( !file_exists("user.settings") )
+	header("Location: https://api.instagram.com/oauth/authorize/?client_id=cd4fae473b4f4daa8c3af0ac15badf8f&redirect_uri=http://localhost/CGN-InstaWeb/auth.php&response_type=token")
+?>
 <html>
 	<head>
 		<title>APAZ BUTİK OTEL  - ALAÇATI</title>
@@ -70,7 +73,7 @@
 							return json_decode( $json_return ); // decode and return
 						    }
 
-							$access_token	='4618655325.aec4650.4a63731d091340d4b67322cbfadc6ab0';
+							$access_token	= fread(fopen("user.settings","r"),filesize("user.settings"));//'4618655325.aec4650.4a63731d091340d4b67322cbfadc6ab0';
 							$return			= rudr_instagram_api_curl_connect("https://api.instagram.com/v1/users/self/media/recent?access_token=" . $access_token);
 							foreach ($return->data as $post) {
 								if ($post->type=="video") {
