@@ -438,7 +438,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #34a58e;
+			background-color: #430f1b;
 			box-shadow: none;
 		}
 
@@ -1477,7 +1477,7 @@
 						}
 
 						#header nav > ul > li a.active {
-							background-color: #242629;
+							background-color: #646669;
 						}
 
 	@media screen and (max-width: 736px) {

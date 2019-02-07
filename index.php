@@ -1,13 +1,13 @@
 <?php error_reporting(0); 
 
-$sitetitle = "";
-$sitesubtitle = "";
-$sitedesc = "";
-$sitebg = "";
+$sitetitle = "Feyz İlham";
+$sitesubtitle = "Atölyesi®";
+$sitedesc = "Marka Yönetimi<br>Sosyal Medya Yön.<br>Dijital Çözümler<br>Web Tasarım & Yazılım<br>Geleneksel Çözümler<br>Pazarlama<br>PR Hizmetleri";
+$sitebg = "#430f1b";
 
 if( !file_exists("user.settings") )
-	header("Location: https://api.instagram.com/oauth/authorize/?client_id=cd4fae473b4f4daa8c3af0ac15badf8f&redirect_uri=http://localhost/CGN-InstaWeb/auth.php&response_type=token");
-else if( !file_exists("site.settings") )
+	header("Location: https://api.instagram.com/oauth/authorize/?client_id=cd4fae473b4f4daa8c3af0ac15badf8f&redirect_uri=http://feyzilhamatolyesi.com/auth.php&response_type=token");
+/*else if( !file_exists("site.settings") )
 	header("Location: auth.php");
 else{
 	$handle = fopen("site.settings", "r");
@@ -15,11 +15,11 @@ else{
 	if (($line = fgets($handle)) !== false) $sitesubtitle = $line;
 	if (($line = fgets($handle)) !== false) $sitedesc = $line;
 	if (($line = fgets($handle)) !== false) $sitebg = substr($line, 0, 7);
-}
+}*/
 ?>
 <html>
 	<head>
-		<title><?php echo $sitetitle." - ".$sitesubtitle; ?></title>
+		<title><?php echo $sitetitle." ".$sitesubtitle; ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -28,31 +28,30 @@ else{
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
-		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/favicon/apple-touch-icon-57x57.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon/apple-touch-icon-72x72.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon/apple-touch-icon-144x144.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/images/favicon/apple-touch-icon-60x60.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/images/favicon/apple-touch-icon-120x120.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/images/favicon/apple-touch-icon-76x76.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/images/favicon/apple-touch-icon-152x152.png" />
-		<link rel="icon" type="image/png" href="assets/images/favicon/favicon-196x196.png" sizes="196x196" />
-		<link rel="icon" type="image/png" href="assets/images/favicon/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/png" href="assets/images/favicon/favicon-32x32.png" sizes="32x32" />
-		<link rel="icon" type="image/png" href="assets/images/favicon/favicon-16x16.png" sizes="16x16" />
-		<link rel="icon" type="image/png" href="assets/images/favicon/favicon-128.png" sizes="128x128" />
+
+		<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/assets/images/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#430f1b">
+		<meta name="msapplication-TileImage" content="/assets/images/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#430f1b">
+		
 		<link rel="stylesheet" href="assets/css/ekko-lightbox.css">
-		<meta name="application-name" content="&nbsp;"/>
-		<meta name="msapplication-TileColor" content="#FFFFFF" />
-		<meta name="msapplication-TileImage" content="assets/images/favicon/mstile-144x144.png" />
-		<meta name="msapplication-square70x70logo" content="assets/images/favicon/mstile-70x70.png" />
-		<meta name="msapplication-square150x150logo" content="assets/images/favicon/mstile-150x150.png" />
-		<meta name="msapplication-wide310x150logo" content="assets/images/favicon/mstile-310x150.png" />
-		<meta name="msapplication-square310x310logo" content="assets/images/favicon/mstile-310x310.png" />
 
-		<meta name="description" content="Apaz Butik Otel, yapıldığı dönemin özgün ayrıntılarıyla, günümüz konforunun ince bir zevkle birleştiği kendine has bir sıcaklığa sahip butik otel." />
+		<meta name="description" content="Marka Yönetimi, Sosyal Medya Yön., Dijital Çözümler, Web Tasarım & Yazılım, Geleneksel Çözümler, Pazarlama, PR Hizmetleri" />
 
-		<meta name="keywords" content="Apaz Butik Otel,Alaçatı Butik Oteller, Alaçatı Otelleri, Butik Otel Alaçatı, Alaçatı Otel Çeşme" />
+		<meta name="keywords" content="Marka Yönetimi, Sosyal Medya Yön., Dijital Çözümler, Web Tasarım & Yazılım, Geleneksel Çözümler, Pazarlama, PR Hizmetleri" />
 	</head>
 	<body style="<?php echo'background-color: '.$sitebg.';' ?>">
 
@@ -62,7 +61,7 @@ else{
 <div class="container">	
 	
 <header id="header">
-<h1 ><a  href="index.php" style="cursor: pointer;text-decoration:none" ><img class="logo" src="assets/images/favicon/apple-touch-icon-72x72.png" /><strong><span class="logocolor"><?php echo $sitetitle; ?></span></strong><span class="respon"><?php echo $sitesubtitle; ?></span></a>
+<h1 ><a  href="index.php" style="cursor: pointer;text-decoration:none" ><img class="logo" src="assets/images/favicon/apple-icon.png" /><strong><span class="logocolor"><?php echo $sitetitle; ?></span></strong><span class="respon"><?php echo $sitesubtitle; ?></span></a>
 <nav>
 <ul>
 <li class="logocolor" ><a href="#footer"style="cursor: pointer;text-decoration:none"  class="icon fa-info-circle"><span class="logocolor">Hakkımızda</span></a></li>
